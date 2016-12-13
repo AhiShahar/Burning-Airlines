@@ -18,7 +18,7 @@ class FlightsControllerTest < ActionController::TestCase
 
   test "should create flight" do
     assert_difference('Flight.count') do
-      post :create, flight: { airplane_id: @flight.airplane_id, date: @flight.date, departure: @flight.departure, destination: @flight.destination, number: @flight.number }
+      post :create, flight: { airplane_id: @flight.airplane_id, date: @flight.date, departure: @flight.departure, destination: @flight.destination, duration: @flight.duration, number: @flight.number }
     end
 
     assert_redirected_to flight_path(assigns(:flight))
@@ -35,7 +35,7 @@ class FlightsControllerTest < ActionController::TestCase
   end
 
   test "should update flight" do
-    patch :update, id: @flight, flight: { airplane_id: @flight.airplane_id, date: @flight.date, departure: @flight.departure, destination: @flight.destination, number: @flight.number }
+    patch :update, id: @flight, flight: { airplane_id: @flight.airplane_id, date: @flight.date, departure: @flight.departure, destination: @flight.destination, duration: @flight.duration, number: @flight.number }
     assert_redirected_to flight_path(assigns(:flight))
   end
 

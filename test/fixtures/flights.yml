@@ -2,14 +2,16 @@
 
 one:
   number: MyString
-  date: 2016-12-13
+  date: 2016-12-14
   destination: MyString
   departure: MyString
+  duration: MyText
   airplane_id: 1
 
 two:
   number: MyString
-  date: 2016-12-13
+  date: 2016-12-14
   destination: MyString
   departure: MyString
+  duration: MyText
   airplane_id: 1
