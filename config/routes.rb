@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :bookings
-  root 'users#index'
+  root 'session#new'
   get '/home' => 'users#index'
 
   get "/search" => 'appointment_types#search'
