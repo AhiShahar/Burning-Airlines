@@ -39,9 +39,9 @@ app.SearchView = Backbone.View.extend({
       _.each(searchedFlights, function(flight){
 
         var showFlight = function (e) {
-          console.log(e);
-          // var id = this.model.get("id");
-          // app.router.navigate("/flights/" + id, true);
+          var id = e.currentTarget.id;
+
+          app.router.navigate("/flights/" + id, true);
         };
 
         // console.log(flight.toJSON());
@@ -49,7 +49,7 @@ app.SearchView = Backbone.View.extend({
         var dynamicResultTemplate = _.template(resultTemplate);
         var $compiledResultTemplate = dynamicResultTemplate(flight.toJSON());
         $("#results").append( $compiledResultTemplate );
-        $("#"+flight.toJSON().number).on("click", showFlight);
+        $("#"+flight.toJSON().id).on("click", showFlight);
 
       });
     });
