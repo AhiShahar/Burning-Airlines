@@ -174,4 +174,14 @@ h5 {
   border: 2px solid black;
   margin: 10px;
   border-radius: 5px;
+  cursor: pointer;
+  background-color: gainsboro;
+}
+
+.unavailable {
+  background-color: red;
+}
+
+.selected {
+  background-color: green;
 }
