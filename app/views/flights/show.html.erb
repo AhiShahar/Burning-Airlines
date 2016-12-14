@@ -40,31 +40,11 @@
 
 
 <div class="planeDisplay">
-  <% (@flight.airplane.rows.to_i + 1).times do |r| %>
+  <% @flight.airplane.rows.to_i.times do |r| %>
     <div class="row">
-      <% letters = ("A".."Z").to_a.unshift("")  %>
-      <% cols = @flight.airplane.cols.to_i + 1 %>
-      <% if r === 0 %>
-         <% cols.times do |letter| %>
-           <div class="col lineLetter"><%= letters[letter] %></div>
-         <% end %>
-      <% else %>
-        <% cols.times do |c| %>
-          <% if c > 0 %>
-            <div class="col seat"><%#= "#{r}" + letters[c] %></div>
-          <% else %>
-            <div class="col lineNumber"><%= r %></div>
-          <% end %>
-          <% if cols === 7 && c === 3 %>
-            <div class="col aisle">aisle</div>
-          <% end %>
-          <% if cols === 9 && (c === 3 || c === 5) %>
-            <div class="col aisle">aisle</div>
-          <% end %>
-          <% if cols === 11 && (c === 3 || c === 7) %>
-            <div class="col aisle">aisle</div>
-          <% end %>
-        <% end %>
+      <% letters = ("A".."Z").to_a  %>
+      <% @flight.airplane.cols.to_i.times do |c| %>
+        <div class="col seat"><%= letters[c]+r %></div>
       <% end %>
     </div>
   <% end %>
