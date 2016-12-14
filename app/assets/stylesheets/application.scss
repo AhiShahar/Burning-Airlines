@@ -2,31 +2,19 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background-image:
-  linear-gradient(
-      to right,
-      #26547C,
-      #26547C 5%,
-      #EF476F 5%,
-      #EF476F 10%,
-      #FFD166 10%,
-      #FFD166 15%,
-      ghostwhite 15%
-    );
 }
-
 
 nav {
   background-image:
   linear-gradient(
       to right,
-      #26547C,
-      #26547C 5%,
+      #183E87,
+      #183E87 5%,
       #EF476F 5%,
       #EF476F 10%,
       #FFD166 10%,
       #FFD166 15%,
-      ghostwhite 15%
+      #DAF3F8 15%
     );
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
@@ -85,36 +73,46 @@ form {
   width: 500px;
   margin: 0 auto;
   label {
-    color: black;
+    color: #EF476F;
   }
+
   input {
-    border-bottom: 1px solid white;
+    color: #EF476F;
+    background-color: ghostwhite;
+    border: 2px solid #EF476F;
+    border-radius: 5px;
     margin: 0px 0px 10px 0px;
   }
+
+  p input {
+    outline: none;
+    border-bottom: 1px solid ghostwhite !important;
+    box-shadow: 0 1px 0 0 ghostwhite !important
+  }
+
   p {
-    color: white;
+    color: ghostwhite;
   }
   input:focus {
-  background-color: #f4a4a6;
-  }
-  button {
-    background-color: #D44D5C;
-    color: white;
-    border: 1px solid white;
-    border-radius: 5px;
-  }
-  button:hover {
-    background-color: #f4a4a6;
-  }
-  button:focus {
-    outline: 0;
-    border: 1px solid #D44D5C;
+  outline: none;
+  background-color: ghostwhite;
   }
   p input:focus {
-   border-bottom: 1px solid #162129 !important;
-   box-shadow: 0 1px 0 0 #162129 !important
+    outline: none;
+    border-bottom: 1px solid ghostwhite !important;
+    box-shadow: 0 1px 0 0 ghostwhite !important
  }
 }
+
+.field {
+  input {
+    outline: none;
+    border-bottom: 1px solid ghostwhite !important;
+    box-shadow: 0 1px 0 0 ghostwhite !important
+  }
+}
+
+
 
 .deleteButton {
   color: white;
@@ -122,15 +120,28 @@ form {
   margin: 0px 5px 0px 0px;
   font-size: 16px;
 }
-.deleteButtonRight {
-  float: right;
-}
 
 
 h1 {
   margin-top: 100px;
   text-align: center;
+  color: #EF476F;
 }
+
+.logo {
+  font-family: 'Lobster', cursive;
+  font-size: 75px;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 110px;
+  color: white;
+text-shadow:
+-2px -2px 0 #EF476F,
+2px -2px 0 #EF476F,
+-2px 2px 0 #EF476F,
+2px 2px 0 #EF476F;
+}
+
 .logo h1 {
   font-size: 100px;
   color: white;
@@ -138,7 +149,7 @@ h1 {
 }
 
 h2 {
-  font-family: 'Righteous', cursive;
+  font-family: 'Lobster', cursive;
   text-align: center;
   margin: 0 auto;
   margin-top: 10px;
@@ -153,16 +164,16 @@ h3 {
 }
 
 h4 {
-  font-size: 40px;
+  font-family: 'Lobster', cursive;
+  font-size: 46px;
   margin-top: -8px;
-  transform: translate(-4px);
+  line-height: inherit;
+  transform: translate(-35px, 5px);
   text-shadow:
-  -2px -2px 0 #D44D5C,
-  2px -2px 0 #D44D5C,
-  -2px 2px 0 #D44D5C,
-  2px 2px 0 #D44D5C;
-
-  // text-shadow: 2px 1px 10px rgba(0, 0, 0, 0.5);
+  -2px -2px 0 #EF476F,
+  2px -2px 0 #EF476F,
+  -2px 2px 0 #EF476F,
+  2px 2px 0 #EF476F;
 }
 
 h5 {
@@ -195,4 +206,49 @@ h5 {
   display: inline-block;
   background-color: rgba(0,0,0,0.2);
   padding: 2px;
+
+html, body {
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(123deg, #eef9f6, #beebfc, #1c6cc1, #0638a6, #33485d, #112436);
+  background-size: 1200% 1200%;
+  -webkit-animation: sky 30s ease-in-out infinite;
+  -moz-animation: sky 30s ease-in-out infinite;
+  animation: sky 30s ease-in-out infinite;
+}
+
+@-webkit-keyframes sky {
+  0% {
+    background-position: 0% 7%;
+  }
+  50% {
+    background-position: 100% 94%;
+  }
+  100% {
+    background-position: 0% 7%;
+  }
+}
+@-moz-keyframes sky {
+  0% {
+    background-position: 0% 7%;
+  }
+  50% {
+    background-position: 100% 94%;
+  }
+  100% {
+    background-position: 0% 7%;
+  }
+}
+@keyframes sky {
+  0% {
+    background-position: 0% 7%;
+  }
+  50% {
+    background-position: 100% 94%;
+  }
+  100% {
+    background-position: 0% 7%;
+  }
 }
