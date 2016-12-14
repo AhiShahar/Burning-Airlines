@@ -27,8 +27,29 @@
 
 <p>
   <strong>Airplane:</strong>
-  <%= @flight.airplane_id %>
+  <%= @flight.airplane.name %>
 </p>
+<p>
+  <strong>cols:</strong>
+  <%= @flight.airplane.cols %>
+</p>
+<p>
+  <strong>rows:</strong>
+  <%= @flight.airplane.rows %>
+</p>
+
+
+<div class="planeDisplay">
+  <% @flight.airplane.rows.to_i.times do |r| %>
+    <% seatNum = r*@flight.airplane.cols.to_i %>
+    <div class="row">
+      <% @flight.airplane.cols.to_i.times do |c| %>
+        <div class="col seat"><%= seatNum + c +1 %></div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
 
 <%= link_to 'Edit', edit_flight_path(@flight) %> |
 <%= link_to 'Back', flights_path %>
