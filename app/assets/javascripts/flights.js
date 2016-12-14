@@ -4,7 +4,7 @@ $( document ).ready(function() {
   // var seatSelected = function() {
   //   console.log("you clicked a seat");
   //   $(this).css({
-  //   backgroundColor: "hotpink"
+  //   backgroundColor: "green"
   // });
   //
   // };
