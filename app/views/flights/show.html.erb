@@ -43,8 +43,18 @@
   <% @flight.airplane.rows.to_i.times do |r| %>
     <div class="row">
       <% letters = ("A".."Z").to_a  %>
-      <% @flight.airplane.cols.to_i.times do |c| %>
+      <% cols = @flight.airplane.cols.to_i %>
+      <% cols.times do |c| %>
         <div class="col seat"><%= "#{r+1}" + letters[c] %></div>
+        <% if cols === 6 && c === 3 %>
+          <div class="col">aisle</div>
+        <% end %>
+        <% if cols === 8 && (c === 2 || c === 4) %>
+          <div class="col">aisle</div>
+        <% end %>
+        <% if cols === 10 && (c === 2 || c === 6) %>
+          <div class="col">aisle</div>
+        <% end %>
       <% end %>
     </div>
   <% end %>
