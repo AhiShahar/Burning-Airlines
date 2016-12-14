@@ -7,14 +7,19 @@ app.AppView = Backbone.View.extend({
 
   render: function() {
     console.log("app.AppView should be on the page");
-    var appViewTemplate = $("#AppViewTemplate").html();
-    console.log(appViewTemplate);
+
+    var appViewTemplate = $("#yourBookings").html();
+    var dynamicTemplate = _.template( appViewTemplate );
+    var compiledTemplate = dynamicTemplate({
+      email: app.user.email
+    });
+    console.log(compiledTemplate);
     // Get the HTML from #AppViewTemplate
     // Set the HTML of this.$el to be that HTML
-    this.$el.html(appViewTemplate);
+    this.$el.html(compiledTemplate);
 
-    var secretInputView = new app.SecretInputView();
-    secretInputView.render();
+    // var secretInputView = new app.SecretInputView();
+    // secretInputView.render();
   }
 
 });

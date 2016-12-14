@@ -25,6 +25,10 @@ nav {
   background-position: left;
 }
 
+.container {
+  margin-top: 150px;
+}
+
 a {
   font-size: 20px;
   margin: 0px 35px;
@@ -186,4 +190,11 @@ h5 {
 
 .selected {
   background-color: green;
+}
+
+#origin, #destination {
+  width: 200px;
+  display: inline-block;
+  background-color: rgba(0,0,0,0.2);
+  padding: 2px;
 }

@@ -1,0 +1,23 @@
+<div id="app">
+
+<ul id="results"></ul>
+</div>
+
+<script>
+  var app = app || {};
+
+  app.user = JSON.parse( '<%= @current_user.to_json.html_safe %>' );
+</script>
+
+
+<script type="html/template" id="yourBookings">
+<p>
+  <strong>User:</strong>
+  <%%= email %>
+</p>
+</script>
+
+<script type="html/template" id="search">
+  <input type="text" id="origin" class="browser-default" />
+  <input type="text" id="destination" class="browser-default" />
+</script>

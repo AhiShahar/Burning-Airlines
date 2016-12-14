@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get '/app' => "users#app"
+
   resources :bookings
   root 'session#new'
   get '/home' => 'users#index'
