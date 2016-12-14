@@ -41,10 +41,10 @@
 
 <div class="planeDisplay">
   <% @flight.airplane.rows.to_i.times do |r| %>
-    <% seatNum = r*@flight.airplane.cols.to_i %>
     <div class="row">
+      <% letters = ("A".."Z").to_a  %>
       <% @flight.airplane.cols.to_i.times do |c| %>
-        <div class="col seat"><%= seatNum + c +1 %></div>
+        <div class="col seat"><%= letters[c]+c %></div>
       <% end %>
     </div>
   <% end %>
