@@ -2,6 +2,9 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :authorise, only: [:edit, :update, :destroy]
 
+  def app
+  end
+
   # GET /users
   # GET /users.json
   def index
