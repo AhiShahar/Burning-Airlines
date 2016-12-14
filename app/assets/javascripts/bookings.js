@@ -3,7 +3,7 @@ var app = app || {};
 $(document).ready(function() {
   // app.bookings = new app.Bookings();
   // app.bookings.fetch();
-  var $seat = $(".col .seat");
+  var $seat = $(".seat");
   $seat.on("click", function() {
     $(this).toggleClass("selected");
 
