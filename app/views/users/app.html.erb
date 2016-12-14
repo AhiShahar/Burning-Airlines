@@ -24,9 +24,10 @@
 </script>
 
 <script type="html/template" id="searchItem">
-  <li>
-    <span>Departure: <%%= departure %></span>
-    <span>Destination: <%%= destination %></span>
-    <span>Flight Number: <%%= number %></span>
+  <li class="row">
+    <span class="col s2 m2" id="<%%= number %>">Book</span>
+    <span class="col s3 m3">Departure: <%%= departure %></span>
+    <span class="col s3 m3">Destination: <%%= destination %></span>
+    <span class="col s4 m4">Flight Number: <%%= number %></span>
   </li>
 </script>

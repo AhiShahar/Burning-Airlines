@@ -3,9 +3,10 @@ var app = app || {};
 // This is our routes file, controllers and actions all in one
 app.Router = Backbone.Router.extend({
   routes: {
-    '':'initializeBurningApp',
+    '':'search',
     'search':'search',
     '*error':'error'
+
   },
 
   // From here, it is controllers and actions
@@ -19,6 +20,10 @@ app.Router = Backbone.Router.extend({
     console.log("alksnfa");
     var searchView = new app.SearchView();
     searchView.render();
+  },
+
+  displayFlight: function(e){
+    console.log("the flight should be displayed");
   }
-  
+
 });

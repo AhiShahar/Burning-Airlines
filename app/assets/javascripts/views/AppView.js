@@ -1,8 +1,7 @@
 var app = app || {};
 
 app.AppView = Backbone.View.extend({
-  // this.el
-  // this.$el
+
   el: "#app",
 
   render: function() {

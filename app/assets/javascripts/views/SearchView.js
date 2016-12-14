@@ -6,24 +6,26 @@ app.SearchView = Backbone.View.extend({
   el: "#app",
 
   events: {
-    'keyup input':'showFlights'
+    'keyup input':'showFlights',
+    'click #showFlight':'showFlight'
   },
 
   render: function() {
     console.log("app.SearchView should be on the page");
 
     var searchTemplate = $("#search").html();
-
     console.log(searchTemplate);
     // Get the HTML from #AppViewTemplate
     // Set the HTML of this.$el to be that HTML
     this.$el.html(searchTemplate);
-
-    // var secretInputView = new app.SecretInputView();
-    // secretInputView.render();
   },
 
+  // var showFlight = function () {
+  //   var id = this.model.get("id");
+  //   app.router.navigate("/flights/" + id, true);
+  // },
   showFlights: function(e) {
+    $("#results").html("");
     // console.log(e.currentTarget.id);
     // var searchParam = $("#"+e.currentTarget.id).val();
     var departure = $("#departure").val();
@@ -35,12 +37,20 @@ app.SearchView = Backbone.View.extend({
         return flight.get("departure").toLowerCase().startsWith( departure ) && flight.get("destination").toLowerCase().startsWith( destination );
       });
       _.each(searchedFlights, function(flight){
-        console.log(flight.toJSON());
+
+        var showFlight = function (e) {
+          console.log(e);
+          // var id = this.model.get("id");
+          // app.router.navigate("/flights/" + id, true);
+        };
+
+        // console.log(flight.toJSON());
         var resultTemplate = $("#searchItem").html();
         var dynamicResultTemplate = _.template(resultTemplate);
         var $compiledResultTemplate = dynamicResultTemplate(flight.toJSON());
         $("#results").append( $compiledResultTemplate );
-        console.log($compiledResultTemplate);
+        $("#"+flight.toJSON().number).on("click", showFlight);
+
       });
     });
   }
