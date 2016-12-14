@@ -20,4 +20,5 @@ app.Router = Backbone.Router.extend({
     var searchView = new app.SearchView();
     searchView.render();
   }
+  
 });
