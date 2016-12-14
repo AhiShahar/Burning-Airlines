@@ -17,7 +17,7 @@ app.Router = Backbone.Router.extend({
 
   search: function() {
     console.log("alksnfa");
-    var searchParams = new app.SearchView();
+    var searchView = new app.SearchView();
     searchView.render();
   }
 });
