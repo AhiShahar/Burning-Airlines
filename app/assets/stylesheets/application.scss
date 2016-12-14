@@ -2,15 +2,9 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
+  color: black;
   background-image:
   linear-gradient(
-      to right,
-      #26547C,
-      #26547C 5%,
-      #EF476F 5%,
-      #EF476F 10%,
-      #FFD166 10%,
-      #FFD166 15%,
       ghostwhite 15%
     );
 }
@@ -18,21 +12,17 @@ body {
 
 nav {
   background-image:
-  linear-gradient(
-      to right,
-      #26547C,
-      #26547C 5%,
-      #EF476F 5%,
-      #EF476F 10%,
-      #FFD166 10%,
-      #FFD166 15%,
-      ghostwhite 15%
+    (ghostwhite 15%,
+      #ff0000 100%
     );
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
 	box-shadow: none;
   position: fixed;
   top: 0px;
+  background-image: url(http://res.cloudinary.com/esthertan/image/upload/v1481682772/aeroplane_hx9vad.png);
+  background-repeat: no-repeat;
+  background-position: left;
 }
 
 a {
@@ -47,8 +37,17 @@ a {
 
 .loginNav, .addPlaneNav, .addFlightNav {
   float: left;
-  color: dodgerblue;
+  background-color: #ff0000;
+  color: white;
 }
+
+button {
+  background-color: #ff0000;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
 .signUpNav, .logoutNav, .editNav {
   float: right;
   color: dodgerblue;
@@ -94,7 +93,7 @@ form {
   background-color: #f4a4a6;
   }
   button {
-    background-color: #D44D5C;
+    background-color: #ff0000;
     color: white;
     border: 1px solid white;
     border-radius: 5px;
@@ -124,8 +123,11 @@ form {
 
 
 h1 {
-  margin-top: 100px;
+  margin-top: 80px;
   text-align: center;
+  background-color: red;
+  color: white;
+  font-size: 25px;
 }
 .logo h1 {
   font-size: 100px;
