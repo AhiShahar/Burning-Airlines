@@ -14,7 +14,6 @@ app.AppView = Backbone.View.extend({
       email: app.user.email
     });
     console.log(compiledTemplate);
-    debugger;
     // Get the HTML from #AppViewTemplate
     // Set the HTML of this.$el to be that HTML
     this.$el.html(compiledTemplate);

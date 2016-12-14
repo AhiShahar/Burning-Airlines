@@ -5,6 +5,10 @@ app.SearchView = Backbone.View.extend({
   // this.$el
   el: "#app",
 
+  events: {
+    'keyPress':'showFlights'
+  },
+
   render: function() {
     console.log("app.SearchView should be on the page");
 
@@ -17,6 +21,10 @@ app.SearchView = Backbone.View.extend({
 
     // var secretInputView = new app.SecretInputView();
     // secretInputView.render();
+  },
+
+  showFlights: function() {
+    console.log("searching flights");
   }
 
 });
