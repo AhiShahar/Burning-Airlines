@@ -44,7 +44,7 @@
     <div class="row">
       <% letters = ("A".."Z").to_a  %>
       <% @flight.airplane.cols.to_i.times do |c| %>
-        <div class="col seat"><%= letters[c]+c %></div>
+        <div class="col seat"><%= "#{r+1}" + letters[c] %></div>
       <% end %>
     </div>
   <% end %>
