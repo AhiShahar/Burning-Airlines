@@ -1,1 +1,76 @@
 @import "materialize";
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-image:
+  linear-gradient(
+      to right,
+      #26547C,
+      #26547C 5%,
+      #EF476F 5%,
+      #EF476F 10%,
+      #FFD166 10%,
+      #FFD166 15%,
+      ghostwhite 15%
+    );
+}
+
+.session {
+  background-color: #162129;
+}
+
+nav {
+  background-image:
+  linear-gradient(
+      to right,
+      #26547C,
+      #26547C 5%,
+      #EF476F 5%,
+      #EF476F 10%,
+      #FFD166 10%,
+      #FFD166 15%,
+      ghostwhite 15%
+    );
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+  position: fixed;
+  top: 0px;
+}
+a {
+  font-size: 20px;
+  margin: 0px 35px;
+}
+
+.hide-on-med-and-down a {
+  font-size: 20px;
+  margin: 0px 20px;
+}
+
+.loginNav, .addPlaneNav, .addFlightNav {
+  float: left;
+}
+.signUpNav, .logoutNav, .editNav {
+  float: right;
+}
+
+.side-nav {
+  width: 50%;
+  height: 50%;
+  background-color: #162129;
+  a {
+    font-size: 16px;
+    margin: 20px 0px 0px 0px;
+    background-color: #162129;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    width: 100%;
+    display: block;
+    text-align: left;
+    float: left;
+    clear:both;
+  }
+  a:hover {
+    background-color: #141E25;
+  }
+}
