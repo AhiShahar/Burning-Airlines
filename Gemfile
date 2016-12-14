@@ -37,7 +37,7 @@ group :development, :test do
   gem 'byebug'
   gem 'rails-pry'
   gem 'annotate'
-  gem 'lolcommits'
+  # gem 'lolcommits'
 end
 
 group :development do

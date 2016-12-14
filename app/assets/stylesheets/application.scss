@@ -2,19 +2,7 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background-image:
-  linear-gradient(
-      to right,
-      #26547C,
-      #26547C 5%,
-      #EF476F 5%,
-      #EF476F 10%,
-      #FFD166 10%,
-      #FFD166 15%,
-      ghostwhite 15%
-    );
 }
-
 
 nav {
   background-image:
@@ -155,7 +143,8 @@ h3 {
 h4 {
   font-size: 40px;
   margin-top: -8px;
-  transform: translate(-4px);
+  line-height: inherit;
+  transform: translate(0px, 5px);
   text-shadow:
   -2px -2px 0 #D44D5C,
   2px -2px 0 #D44D5C,
@@ -188,4 +177,50 @@ h5 {
 
 .selected {
   background-color: green;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(123deg, #eef9f6, #beebfc, #1c6cc1, #0638a6, #33485d, #112436);
+  background-size: 1200% 1200%;
+  -webkit-animation: sky 30s ease-in-out infinite;
+  -moz-animation: sky 30s ease-in-out infinite;
+  animation: sky 30s ease-in-out infinite;
+}
+
+@-webkit-keyframes sky {
+  0% {
+    background-position: 0% 7%;
+  }
+  50% {
+    background-position: 100% 94%;
+  }
+  100% {
+    background-position: 0% 7%;
+  }
+}
+@-moz-keyframes sky {
+  0% {
+    background-position: 0% 7%;
+  }
+  50% {
+    background-position: 100% 94%;
+  }
+  100% {
+    background-position: 0% 7%;
+  }
+}
+@keyframes sky {
+  0% {
+    background-position: 0% 7%;
+  }
+  50% {
+    background-position: 100% 94%;
+  }
+  100% {
+    background-position: 0% 7%;
+  }
 }
