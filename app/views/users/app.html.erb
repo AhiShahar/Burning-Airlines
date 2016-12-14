@@ -1,0 +1,24 @@
+<div id="app">
+
+<ul id="results"></ul>
+</div>
+
+<script>
+  var app = app || {};
+
+  app.user = JSON.parse( '<%= @current_user.to_json.html_safe %>' );
+</script>
+
+
+<script type="html/template" id="yourBookings">
+<p>
+  <strong>User:</strong>
+  <%%= email %>
+</p>
+</script>
+
+<script type="html/template" id="search">
+  <%= form_tag "/search", method: "GET", :class => "searchForm" do %>
+  <%= text_field_tag :location %>
+  <% end %>
+</script>
