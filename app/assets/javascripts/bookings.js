@@ -22,7 +22,7 @@ $(document).ready(function() {
 
     var animatePlane = function () {
       $(".planeFly").animate({
-        top: "300px"
+        top: "350px"
       }, 3000, function () {
         $(".planeFly").animate({
           top: "0"
