@@ -11,10 +11,10 @@ app.SearchView = Backbone.View.extend({
   },
 
   render: function() {
-    console.log("app.SearchView should be on the page");
+    // console.log("app.SearchView should be on the page");
 
     var searchTemplate = $("#search").html();
-    console.log(searchTemplate);
+    // console.log(searchTemplate);
     // Get the HTML from #AppViewTemplate
     // Set the HTML of this.$el to be that HTML
     this.$el.html(searchTemplate);
@@ -24,7 +24,7 @@ app.SearchView = Backbone.View.extend({
     $("#results").html("");
     var departure = $("#departure").val();
     var destination = $("#destination").val();
-      var allFlights = allFlights || new app.Flights();
+    var allFlights = allFlights || new app.Flights();
     allFlights.fetch().done(function(){
       var searchedFlights = allFlights.filter(function(flight){
         // console.log(flight.toJSON());
