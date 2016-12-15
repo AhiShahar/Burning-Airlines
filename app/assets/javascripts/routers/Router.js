@@ -5,8 +5,8 @@ app.Router = Backbone.Router.extend({
   routes: {
     '':'search',
     'search':'search',
+    'flights/:id':'showFlight',
     '*error':'error'
-
   },
 
   // From here, it is controllers and actions
@@ -22,8 +22,10 @@ app.Router = Backbone.Router.extend({
     searchView.render();
   },
 
-  displayFlight: function(e){
-    console.log("the flight should be displayed");
+  showFlight: function(id){
+    console.log("the flight should be displayed", id);
+    var flightView = new app.FlightView();
+    flightView.render(id);
   }
 
 });

@@ -20,14 +20,8 @@ app.SearchView = Backbone.View.extend({
     this.$el.html(searchTemplate);
   },
 
-  // var showFlight = function () {
-  //   var id = this.model.get("id");
-  //   app.router.navigate("/flights/" + id, true);
-  // },
   showFlights: function(e) {
     $("#results").html("");
-    // console.log(e.currentTarget.id);
-    // var searchParam = $("#"+e.currentTarget.id).val();
     var departure = $("#departure").val();
     var destination = $("#destination").val();
     var allFlights = allFlights || new app.Flights();
@@ -40,10 +34,8 @@ app.SearchView = Backbone.View.extend({
 
         var showFlight = function (e) {
           var id = e.currentTarget.id;
-
           app.router.navigate("/flights/" + id, true);
         };
-
         // console.log(flight.toJSON());
         var resultTemplate = $("#searchItem").html();
         var dynamicResultTemplate = _.template(resultTemplate);
