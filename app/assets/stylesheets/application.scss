@@ -38,8 +38,12 @@ nav {
   top: 0px;
 }
 
+.top-row {
+  padding-left: 10px;
+}
 .container {
-  margin-top: 150px;
+  margin: 150px auto;
+  width: 100vw;
 }
 
 a {
@@ -220,6 +224,7 @@ h5 {
 .lineNumber {
   margin: 10px;
 }
+
 
 #departure, #destination {
   width: 200px;
