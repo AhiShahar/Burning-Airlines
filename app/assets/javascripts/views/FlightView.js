@@ -8,16 +8,12 @@ app.FlightView = Backbone.View.extend({
     events: {
         'click .seat': 'showSeat'
     },
-
-
     render: function(id) {
         // console.log(id);
         this.$el.html("");
         app.allBookings = app.allBookings || new app.Bookings();
-
         var flightDisplay = function() {
             var $plane = $("<div>").addClass("plane");
-
             var $row = $('<div class="row"></div>');
             var $letter = $('<div class="col lineLetter"></div>');
             var $seat = $('<div class="col seat"></div>');
@@ -25,8 +21,6 @@ app.FlightView = Backbone.View.extend({
             var $aisle = $('<div class="col aisle"> </div>');
             var letters = [" ", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"];
             var topRow = true;
-
-
             _(parseInt(flight.airplane.rows) + 1).times(function(r) {
                 // console.log( r );
                 var $newRow = $row.clone();
@@ -45,7 +39,6 @@ app.FlightView = Backbone.View.extend({
                     });
                 } else {
                     _(cols).times(function(column) {
-
                         if (column) {
                             var searchSeat = app.allBookings.filter(function(seat) {
                                 return seat.get("flight_id") === flight.id && seat.get("seat") === "" + r + column;
@@ -60,7 +53,6 @@ app.FlightView = Backbone.View.extend({
                             if ( searchSeat.length > 0 ) {
                                 $newSeat.addClass("unavailable");
                             }
-
                             $newRow.append($newSeat);
                         } else {
                             $newRow.append($lineNumber.clone().text(r));
@@ -69,12 +61,10 @@ app.FlightView = Backbone.View.extend({
                             $newRow.append($aisle.clone());
                         }
                     });
-
                 }
             });
             return $plane;
         };
-
         var allFlights = allFlights || new app.Flights();
         var refreshFlight = function() {
             allFlights.fetch().done(function() {
@@ -93,13 +83,8 @@ app.FlightView = Backbone.View.extend({
             });
         };
         refreshFlight();
-        app.searchTimer = window.setInterval(refreshFlight, 400);
-
+        app.searchTimer = window.setInterval(refreshFlight, 1000);
     },
-
-
-
-
     showSeat: function(e) {
         // console.log(e);
         // console.log(e.currentTarget);

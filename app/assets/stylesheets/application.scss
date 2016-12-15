@@ -380,9 +380,12 @@ html, body {
   height: 30px;
 }
 
-#app input:focus {
-  outline: none;
-  background-color: ghostwhite;
+#app {
+  text-align: center;
+  input:focus {
+    outline: none;
+    background-color: ghostwhite;
+  }
 }
 
 span.m2 {
