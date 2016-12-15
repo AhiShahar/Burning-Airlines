@@ -6,6 +6,6 @@ app.Booking = Backbone.Model.extend({
     content: "I put bleach in your coffee"
   },
   initialize: function() {
-    console.log("something should  be created");
+    // console.log("something should  be created");
   }
 });

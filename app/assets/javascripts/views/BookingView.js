@@ -6,9 +6,10 @@ app.BookingView = Backbone.View.extend({
   el: "#",
 
 
-  render: function() {
+  render: function(id) {
     console.log("app.BookingView should be on the page");
-  },
+    console.log(id);
+  }
 
 
 

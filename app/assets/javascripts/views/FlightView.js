@@ -6,13 +6,13 @@ app.FlightView = Backbone.View.extend({
     el: "#results",
 
     events: {
-        'click .seat':'showSeat'
+        'click .seat': 'showSeat'
     },
-
 
     render: function(id) {
         // console.log(id);
         this.$el.html("");
+        var allBookings = allBookings || new app.Bookings();
 
         var flightDisplay = function() {
             var $plane = $("<div>").addClass("plane");
@@ -23,6 +23,9 @@ app.FlightView = Backbone.View.extend({
             var $lineNumber = $('<div class="col lineNumber"></div>');
             var $aisle = $('<div class="col aisle"> </div>');
             var letters = [" ", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"];
+            var topRow = true;
+
+
             _(parseInt(flight.airplane.rows) + 1).times(function(r) {
                 // console.log( r );
                 var $newRow = $row.clone();
@@ -31,41 +34,57 @@ app.FlightView = Backbone.View.extend({
                 if (r === 0) {
                     _(cols).times(function(letter) {
                         ($newRow).append($letter.clone().text(letters[letter]));
+                        if (topRow === true) {
+                            $newRow.addClass("top-row");
+                            topRow = false;
+                        }
                         if ((cols === 7 && letter === 3) || (cols === 9 && (letter === 3 || letter === 5)) || (cols === 11 && (letter === 3 || letter === 7))) {
                             $newRow.append($aisle.clone());
                         }
                     });
                 } else {
-                    _(cols).times(function(c) {
-                        if (c > 0) {
+                    _(cols).times(function(column) {
+
+                        if (column) {
+                            var searchSeat = allBookings.filter(function(seat) {
+                                return seat.get("flight_id") === flight.id && seat.get("seat") === "" + r + column;
+                            });
+                            // console.log(searchSeat);
                             var $newSeat = $seat.clone();
-                            $newSeat.attr("id", r + letters[c] );
+                            $newSeat.attr("id", r + letters[column]);
                             $newSeat.attr("data-row", r);
-                            $newSeat.attr("data-column", c);
+                            $newSeat.attr("data-column", column);
                             $newSeat.attr("data-plane", flight.id);
+
+                            if ( searchSeat.length > 0 ) {
+                                $newSeat.addClass("unavailable");
+                            }
+
                             $newRow.append($newSeat);
                         } else {
                             $newRow.append($lineNumber.clone().text(r));
                         }
-                        if ((cols === 7 && c === 3) || (cols === 9 && (c === 3 || c === 5)) || (cols === 11 && (c === 3 || c === 7))) {
+                        if ((cols === 7 && column === 3) || (cols === 9 && (column === 3 || column === 5)) || (cols === 11 && (column === 3 || column === 7))) {
                             $newRow.append($aisle.clone());
                         }
                     });
+
                 }
             });
             return $plane;
-        };
+        }
 
         var allFlights = allFlights || new app.Flights();
         allFlights.fetch().done(function() {
             flight = allFlights.get(id).toJSON();
             // console.log(flight);
-            var $plane = flightDisplay();
-            // var flightTemplate = $(flightDisplay).html();
-            // var dynamicFlightTemplate = _.template(flightTemplate);
-            // var $compiledFlightTemplate = dynamicFlightTemplate(flight);
-            $("#results").html( $plane.html() );
-
+            allBookings.fetch().done(function() {
+                var $plane = flightDisplay();
+                // var flightTemplate = $(flightDisplay).html();
+                // var dynamicFlightTemplate = _.template(flightTemplate);
+                // var $compiledFlightTemplate = dynamicFlightTemplate(flight);
+                $("#results").html($plane.html());
+            });
         });
     },
 
