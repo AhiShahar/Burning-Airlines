@@ -73,7 +73,7 @@ app.FlightView = Backbone.View.extend({
                 }
             });
             return $plane;
-        }
+        };
 
         var allFlights = allFlights || new app.Flights();
         var refreshFlight = function() {
@@ -91,9 +91,9 @@ app.FlightView = Backbone.View.extend({
                 });
 
             });
-        }
-        window.setInterval(refreshFlight, 100);
-
+        };
+        refreshFlight();
+        app.searchTimer = window.setInterval(refreshFlight, 400);
 
     },
 
@@ -101,8 +101,8 @@ app.FlightView = Backbone.View.extend({
 
 
     showSeat: function(e) {
-        console.log(e);
-        console.log(e.currentTarget);
+        // console.log(e);
+        // console.log(e.currentTarget);
         if (e.currentTarget.classList.length > 2) {
             alert("Seat is already booked!");
         } else {
