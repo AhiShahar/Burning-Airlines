@@ -20,17 +20,7 @@ body {
 }
 
 nav {
-  background-image:
-  linear-gradient(
-      to right,
-      #183E87,
-      #183E87 5%,
-      #EF476F 5%,
-      #EF476F 10%,
-      #FFD166 10%,
-      #FFD166 15%,
-      #DAF3F8 15%
-    );
+  background: linear-gradient(to bottom right, white, #DAF3F8);
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
 	box-shadow: none;
@@ -61,11 +51,11 @@ a {
 
 .loginNav, .addPlaneNav, .addFlightNav, .searchNav {
   float: left;
-  color: dodgerblue;
+  color: #26547C;
 }
 .signUpNav, .logoutNav, .editNav {
   float: right;
-  color: dodgerblue;
+  color: #26547C;
 }
 
 .side-nav {
@@ -342,4 +332,13 @@ span.m2 {
 .planeFly {
   transform: translate(-50px, 0px);
   z-index: 2;
+}
+
+a {
+  color: #26547C;
+}
+
+.planeFloat {
+position:fixed;
+
 }
