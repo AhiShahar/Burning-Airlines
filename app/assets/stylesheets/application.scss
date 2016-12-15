@@ -200,12 +200,24 @@ h5 {
   background-color: gainsboro;
 }
 
+.row {
+  margin: 10px;
+}
+
 .unavailable {
   background-color: red;
 }
 
 .selected {
   background-color: green;
+}
+
+.lineLetter {
+  margin: 0px 10px 0px 0px;
+}
+
+.lineNumber {
+  margin: 10px;
 }
 
 #departure, #destination {
@@ -281,5 +293,5 @@ html, body {
 }
 
 span.m2 {
-  color: yellow;
+  color: #EF476F;
 }
