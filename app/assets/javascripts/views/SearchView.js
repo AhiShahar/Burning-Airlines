@@ -21,6 +21,7 @@ app.SearchView = Backbone.View.extend({
   },
 
   showFlights: function(e) {
+    $("#resultDetails").html("");
     $("#results").html("");
     var departure = $("#departure").val();
     var destination = $("#destination").val();
