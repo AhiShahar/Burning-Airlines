@@ -41,7 +41,16 @@ app.FlightView = Backbone.View.extend({
                     _(cols).times(function(column) {
                         if (column) {
                             var searchSeat = app.allBookings.filter(function(seat) {
-                                return seat.get("flight_id") === flight.id && seat.get("seat") === "" + r + column;
+                                // var booking = seat.get("flight_id") === flight.id && seat.get("seat") === "" + r + column;
+                                if ((seat.get("flight_id") === flight.id && seat.get("seat") === "" + r + column) > 0){
+                                    var bookingTime = new Date(seat.attributes.created_at);
+                                    var currentTime = new Date();
+                                    if (currentTime - bookingTime > 60000 && seat.get("confirmation") === false) {
+                                        seat.destroy();
+                                    } else {
+                                        return seat.get("flight_id") === flight.id && seat.get("seat") === "" + r + column;
+                                    }
+                                }
                             });
                             // console.log(searchSeat);
                             var $newSeat = $seat.clone();
