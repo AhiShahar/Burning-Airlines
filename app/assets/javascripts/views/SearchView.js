@@ -24,7 +24,7 @@ app.SearchView = Backbone.View.extend({
     $("#results").html("");
     var departure = $("#departure").val();
     var destination = $("#destination").val();
-    var allFlights = allFlights || new app.Flights();
+      var allFlights = allFlights || new app.Flights();
     allFlights.fetch().done(function(){
       var searchedFlights = allFlights.filter(function(flight){
         // console.log(flight.toJSON());

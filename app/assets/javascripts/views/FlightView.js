@@ -5,9 +5,13 @@ app.FlightView = Backbone.View.extend({
     // this.$el
     el: "#results",
 
+    events: {
+        'click .seat':'showSeat'
+    },
+
 
     render: function(id) {
-        console.log("app.FlightView should be on the page");
+        // console.log(id);
         this.$el.html("");
 
         var flightDisplay = function() {
@@ -20,7 +24,7 @@ app.FlightView = Backbone.View.extend({
             var $aisle = $('<div class="col aisle"> </div>');
             var letters = [" ", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"];
             _(parseInt(flight.airplane.rows) + 1).times(function(r) {
-                console.log( r );
+                // console.log( r );
                 var $newRow = $row.clone();
                 $plane.append($newRow);
                 var cols = parseInt(flight.airplane.cols) + 1;
@@ -38,6 +42,7 @@ app.FlightView = Backbone.View.extend({
                             $newSeat.attr("id", r + letters[c] );
                             $newSeat.attr("data-row", r);
                             $newSeat.attr("data-column", c);
+                            $newSeat.attr("data-plane", flight.id);
                             $newRow.append($newSeat);
                         } else {
                             $newRow.append($lineNumber.clone().text(r));
@@ -54,59 +59,18 @@ app.FlightView = Backbone.View.extend({
         var allFlights = allFlights || new app.Flights();
         allFlights.fetch().done(function() {
             flight = allFlights.get(id).toJSON();
-            console.log(flight);
+            // console.log(flight);
             var $plane = flightDisplay();
             // var flightTemplate = $(flightDisplay).html();
             // var dynamicFlightTemplate = _.template(flightTemplate);
             // var $compiledFlightTemplate = dynamicFlightTemplate(flight);
             $("#results").html( $plane.html() );
+
         });
+    },
 
+    showSeat: function(e) {
+        console.log("booking should display");
+        app.router.navigate("/flights/" + $(e.target).data("plane") + "/" + $(e.target).data("row") + $(e.target).data("column"), true);
     }
-
 });
-
-// Create an element with the class of plane
-// Create a bunch of elements within the plane with the class of row
-// For each row, create another bunch of elements with the class of seat and column
-
-
-
-//
-// <div className="plane">
-//   <div className="row">
-//     <div className="seat column">1A</div>
-//     <div className="seat column">1B</div>
-//     <div className="seat column">1C</div>
-//   </div>
-// </div>
-//
-
-
-// var $row = $('<div class="row"></div>');
-// var $letter = $('<div class="col lineLetter"><%%= letters[letter] ></div>');
-// var $seat = $('<div class="col seat"><%%= "#{r}" + letters[c] ></div>');
-// var $lineNumber = $('<div class="col lineNumber"><%%= r ></div>');
-// var $aisle = $('<div class="col aisle">aisle></div>');
-// var letters = [" ","A","B","C","D","E","F","G","H","I","J","K","L"];
-// _(parseInt(flight.airplane.rows) + 1).times(function(r) {
-//
-//   // this.$el.append($row);
-//     var cols = parseInt(flight.airplane.cols) + 1 ;
-//     if (r === 0) {
-//        _(col).times(function(letter) {
-//           $row.append($letter);
-//        });
-//     } else {
-//       _(col).times(function(c) {
-//         if (c > 0) {
-//           $row.append($seat);
-//         } else {
-//           $row.append($lineNumber);
-//         }
-//         if ((cols === 7 && c === 3) || (cols === 9 && (c === 3 || c === 5)) || (cols === 11 && (c === 3 || c === 7))) {
-//           $row.append($aisle);
-//         }
-//       });
-//     }
-// });
