@@ -80,12 +80,15 @@ app.FlightView = Backbone.View.extend({
             // console.log(flight);
             allBookings.fetch().done(function() {
                 var $plane = flightDisplay();
-                // var flightTemplate = $(flightDisplay).html();
-                // var dynamicFlightTemplate = _.template(flightTemplate);
-                // var $compiledFlightTemplate = dynamicFlightTemplate(flight);
+                var flightDetailsTemplate = $(showFlightDetails).html();
+                var dynamicFlightDetailsTemplate = _.template(flightDetailsTemplate);
+                var $compiledFlightDetailsTemplate = dynamicFlightDetailsTemplate(flight);
                 $("#results").html($plane.html());
+                $("#resultDetails").html($compiledFlightDetailsTemplate)
             });
+
         });
+
     },
 
     showSeat: function(e) {
