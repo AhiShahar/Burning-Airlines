@@ -3,11 +3,11 @@ var app = app || {};
 $(document).ready(function() {
   // app.bookings = new app.Bookings();
   // app.bookings.fetch();
-  var $seat = $(".seat");
-  $seat.on("click", function() {
-    $(this).toggleClass("selected");
-
-  });
+  // var $seats = $(".seat");
+  // $seats.on("click", function() {
+  //   $(this).toggleClass("selected");
+  //
+  // });
 
 
   app.router = new app.Router();
