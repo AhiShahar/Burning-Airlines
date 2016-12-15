@@ -102,7 +102,7 @@ form {
   p input {
     outline: none;
     border-bottom: 1px solid ghostwhite !important;
-    box-shadow: 0 1px 0 0 ghostwhite !important
+    box-shadow: 0 1px 0 0 ghostwhite !important;
   }
 
   p {
@@ -110,12 +110,12 @@ form {
   }
   input:focus {
   outline: none;
-  background-color: ghostwhite;
+  background-color: rgba(255, 255, 255, .5);
   }
   p input:focus {
     outline: none;
     border-bottom: 1px solid ghostwhite !important;
-    box-shadow: 0 1px 0 0 ghostwhite !important
+    box-shadow: 0 1px 0 0 ghostwhite !important;
  }
 }
 
@@ -123,17 +123,9 @@ form {
   input {
     outline: none;
     border-bottom: 1px solid ghostwhite !important;
-    box-shadow: 0 1px 0 0 ghostwhite !important
+    box-shadow: 0 1px 0 0 ghostwhite !important;
+    border-radius: 10px;
   }
-}
-
-
-
-.deleteButton {
-  color: white;
-  padding-top: 5px;
-  margin: 0px 5px 0px 0px;
-  font-size: 16px;
 }
 
 
@@ -223,6 +215,10 @@ h5 {
   padding: 2px;
 }
 
+#search {
+  color: white;
+}
+
 html, body {
   width: 100%;
   height: 100%;
@@ -267,4 +263,19 @@ html, body {
   100% {
     background-position: 0% 7%;
   }
+}
+
+#app input {
+  background-color: rgba(255, 255, 255, .3);
+  outline: none;
+  border-bottom: 1px solid ghostwhite !important;
+  box-shadow: 0 1px 0 0 ghostwhite !important;
+  border-radius: 10px;
+  color: #EF476F;
+  height: 30px;
+}
+
+#app input:focus {
+  outline: none;
+  background-color: ghostwhite;
 }
