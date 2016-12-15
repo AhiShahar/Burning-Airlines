@@ -29,11 +29,11 @@ app.Router = Backbone.Router.extend({
     flightView.render(id);
   },
 
-  showBooking: function(plane, id){
+  showBooking: function(flight, id){
     // console.log("the seat should display");
     // console.log(plane);
     // console.log(id);
     var bookingView = new app.BookingView();
-    bookingView.render(id);
+    bookingView.render(flight, id);
   }
 });

@@ -3,9 +3,13 @@ var app = app || {};
 app.Booking = Backbone.Model.extend({
   urlRoot: "/bookings",
   defaults: {
-    content: "I put bleach in your coffee"
+    flight_id: 0,
+    user_id: 0,
+    confirmation: false,
+    seat: ""
   },
   initialize: function() {
-    // console.log("something should  be created");
+    console.log("something should  be created");
+
   }
 });

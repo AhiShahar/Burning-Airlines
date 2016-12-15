@@ -9,10 +9,11 @@ app.FlightView = Backbone.View.extend({
         'click .seat': 'showSeat'
     },
 
+
     render: function(id) {
         // console.log(id);
         this.$el.html("");
-        var allBookings = allBookings || new app.Bookings();
+        app.allBookings = app.allBookings || new app.Bookings();
 
         var flightDisplay = function() {
             var $plane = $("<div>").addClass("plane");
@@ -46,7 +47,7 @@ app.FlightView = Backbone.View.extend({
                     _(cols).times(function(column) {
 
                         if (column) {
-                            var searchSeat = allBookings.filter(function(seat) {
+                            var searchSeat = app.allBookings.filter(function(seat) {
                                 return seat.get("flight_id") === flight.id && seat.get("seat") === "" + r + column;
                             });
                             // console.log(searchSeat);
@@ -75,21 +76,37 @@ app.FlightView = Backbone.View.extend({
         }
 
         var allFlights = allFlights || new app.Flights();
-        allFlights.fetch().done(function() {
-            flight = allFlights.get(id).toJSON();
-            // console.log(flight);
-            allBookings.fetch().done(function() {
-                var $plane = flightDisplay();
-                // var flightTemplate = $(flightDisplay).html();
-                // var dynamicFlightTemplate = _.template(flightTemplate);
-                // var $compiledFlightTemplate = dynamicFlightTemplate(flight);
-                $("#results").html($plane.html());
+        var refreshFlight = function() {
+            allFlights.fetch().done(function() {
+                // window.setInterval(app.FlightView.fetchFlight, 4000);
+                flight = allFlights.get(id).toJSON();
+                // console.log(flight);
+                app.allBookings.fetch().done(function() {
+                    var $plane = flightDisplay();
+                    var flightDetailsTemplate = $(showFlightDetails).html();
+                    var dynamicFlightDetailsTemplate = _.template(flightDetailsTemplate);
+                    var $compiledFlightDetailsTemplate = dynamicFlightDetailsTemplate(flight);
+                    $("#results").html($plane.html());
+                    $("#resultDetails").html($compiledFlightDetailsTemplate);
+                });
+
             });
-        });
+        }
+        window.setInterval(refreshFlight, 100);
+
+
     },
 
+
+
+
     showSeat: function(e) {
-        console.log("booking should display");
-        app.router.navigate("/flights/" + $(e.target).data("plane") + "/" + $(e.target).data("row") + $(e.target).data("column"), true);
+        console.log(e);
+        console.log(e.currentTarget);
+        if (e.currentTarget.classList.length > 2) {
+            alert("Seat is already booked!");
+        } else {
+            app.router.navigate("/flights/" + $(e.target).data("plane") + "/" + $(e.target).data("row") + $(e.target).data("column"), true);
+        }
     }
 });
