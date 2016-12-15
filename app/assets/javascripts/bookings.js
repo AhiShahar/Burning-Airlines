@@ -13,4 +13,29 @@ $(document).ready(function() {
   app.router = new app.Router();
   Backbone.history.start(); // Pay atterntion to hash fragments
 
+  var jumpingPlane = function () {
+    $(".planeFly").css({
+      position: "absolute",
+      top: 100,
+      left: 0
+    });
+
+    var animatePlane = function () {
+      $(".planeFly").animate({
+        top: "300px"
+      }, 3000, function () {
+        $(".planeFly").animate({
+          top: "0"
+        }, 3000, function () {
+          animatePlane();
+        });
+      });
+    };
+
+    animatePlane();
+  };
+
+  jumpingPlane();
+
+
 });
