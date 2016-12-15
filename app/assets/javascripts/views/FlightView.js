@@ -22,7 +22,7 @@ app.FlightView = Backbone.View.extend({
             var $seat = $('<div class="col seat"></div>');
             var $lineNumber = $('<div class="col lineNumber"></div>');
             var $aisle = $('<div class="col aisle"> </div>');
-            var letters = ["", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"];
+            var letters = [" ", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"];
             var topRow = true;
             _(parseInt(flight.airplane.rows) + 1).times(function(r) {
                 // console.log( r );
@@ -33,26 +33,33 @@ app.FlightView = Backbone.View.extend({
                     _(cols).times(function(letter) {
                         ($newRow).append($letter.clone().text(letters[letter]));
                         if (topRow === true){
-                          $newRow.addClass("top-row");
-                          topRow = false;
+                            $newRow.addClass("top-row");
+                            topRow = false;
                         }
                         if ((cols === 7 && letter === 3) || (cols === 9 && (letter === 3 || letter === 5)) || (cols === 11 && (letter === 3 || letter === 7))) {
                             $newRow.append($aisle.clone());
                         }
                     });
                 } else {
-                    _(cols).times(function(c) {
-                        if (c > 0) {
+                    _(cols).times(function(column) {
+
+                        if (column) {
+                            var allBookings = allBookings || new app.Bookings();
+                            allBookings.fetch().done(function(){
+                                var searchSeat = allBookings.filter(function(seat) {
+                                    console.log(seat.get("flight_id" === flight.id));
+                                });
+                            });
                             var $newSeat = $seat.clone();
-                            $newSeat.attr("id", r + letters[c] );
+                            $newSeat.attr("id", r + letters[column] );
                             $newSeat.attr("data-row", r);
-                            $newSeat.attr("data-column", c);
+                            $newSeat.attr("data-column", column);
                             $newSeat.attr("data-plane", flight.id);
                             $newRow.append($newSeat);
                         } else {
                             $newRow.append($lineNumber.clone().text(r));
                         }
-                        if ((cols === 7 && c === 3) || (cols === 9 && (c === 3 || c === 5)) || (cols === 11 && (c === 3 || c === 7))) {
+                        if ((cols === 7 && column === 3) || (cols === 9 && (column === 3 || column === 5)) || (cols === 11 && (column === 3 || column === 7))) {
                             $newRow.append($aisle.clone());
                         }
                     });
