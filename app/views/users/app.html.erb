@@ -19,13 +19,13 @@
 </script>
 
 <script type="html/template" id="search">
-  <input type="text" id="departure" class="browser-default" />
-  <input type="text" id="destination" class="browser-default" />
+  <input type="text" id="departure" class="browser-default" placeholder="Departure" />
+  <input type="text" id="destination" class="browser-default" placeholder="Destination"/>
 </script>
 
 <script type="html/template" id="searchItem">
   <li class="row">
-    <span class="col s2 m2" id="<%%= id %>">Book</span>
+    <span class="col s2 m2" id="<%%= id %>"><%= image_tag("aeroplane.png", :alt => "rss feed") %>Book</span>
     <span class="col s3 m3">Departure: <%%= departure %></span>
     <span class="col s3 m3">Destination: <%%= destination %></span>
     <span class="col s4 m4">Flight Number: <%%= number %></span>
