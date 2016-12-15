@@ -42,7 +42,7 @@ nav {
   padding-left: 10px;
 }
 .container {
-  margin: 150px auto;
+  margin: 125px auto;
   width: 100vw;
 }
 
@@ -281,6 +281,10 @@ html, body {
   100% {
     background-position: 0% 7%;
   }
+}
+
+.backShow {
+  margin-left: 0px;
 }
 
 #app input {
