@@ -66,6 +66,44 @@ f48 = Flight.create :number => "048", :date => "2017/02/13", :destination => "Sl
 f49 = Flight.create :number => "049", :date => "2017/02/14", :destination => "Iceland", :departure => "Greece", :duration => "5000"
 f50 = Flight.create :number => "050", :date => "2017/02/15", :destination => "Moldova", :departure => "Greece", :duration => "5000"
 
+# More Seeds
+
+f51 = Flight.create :number => "051", :date => "2017/02/16", :destination => "Luxembourg", :departure => "China", :duration => "5000"
+f52 = Flight.create :number => "052", :date => "2017/02/17", :destination => "Netherlands", :departure => "China", :duration => "5000"
+f53 = Flight.create :number => "053", :date => "2017/02/18", :destination => "Slovakia", :departure => "China", :duration => "5000"
+f54 = Flight.create :number => "054", :date => "2017/02/19", :destination => "Iceland", :departure => "China", :duration => "5000"
+f55 = Flight.create :number => "055", :date => "2017/02/20", :destination => "Moldova", :departure => "China", :duration => "5000"
+
+f56 = Flight.create :number => "056", :date => "2017/02/21", :destination => "Spain", :departure => "Canada", :duration => "5000"
+f57 = Flight.create :number => "057", :date => "2017/02/22", :destination => "Italy", :departure => "Canada", :duration => "5000"
+f58 = Flight.create :number => "058", :date => "2017/02/23", :destination => "Brazil", :departure => "Canada", :duration => "5000"
+f59 = Flight.create :number => "059", :date => "2017/02/24", :destination => "New Zealand", :departure => "Canada", :duration => "5000"
+f60 = Flight.create :number => "060", :date => "2017/02/25", :destination => "France", :departure => "Canada", :duration => "5000"
+
+f61 = Flight.create :number => "061", :date => "2017/02/26", :destination => "General Assembly", :departure => "Germany", :duration => "5000"
+f62 = Flight.create :number => "062", :date => "2017/02/27", :destination => "Australia", :departure => "Germany", :duration => "5000"
+f63 = Flight.create :number => "063", :date => "2017/02/28", :destination => "Arctic", :departure => "Germany", :duration => "5000"
+f64 = Flight.create :number => "064", :date => "2017/03/01", :destination => "Germany", :departure => "Germany", :duration => "5000"
+f65 = Flight.create :number => "065", :date => "2017/03/02", :destination => "United Kingdom", :departure => "Germany", :duration => "5000"
+
+f66 = Flight.create :number => "066", :date => "2017/03/03", :destination => "Turkey", :departure => "Austria", :duration => "5000"
+f67 = Flight.create :number => "067", :date => "2017/03/04", :destination => "Mexico", :departure => "Austria", :duration => "5000"
+f68 = Flight.create :number => "068", :date => "2017/03/05", :destination => "Russia", :departure => "Austria", :duration => "5000"
+f69 = Flight.create :number => "069", :date => "2017/03/06", :destination => "Morocco", :departure => "Austria", :duration => "5000"
+f70 = Flight.create :number => "070", :date => "2017/03/07", :destination => "Tunisia", :departure => "Austria", :duration => "5000"
+
+f71 = Flight.create :number => "071", :date => "2017/03/08", :destination => "Luxembourg", :departure => "Russia", :duration => "5000"
+f72 = Flight.create :number => "072", :date => "2017/03/09", :destination => "Netherlands", :departure => "Russia", :duration => "5000"
+f73 = Flight.create :number => "073", :date => "2017/03/10", :destination => "Slovakia", :departure => "Russia", :duration => "5000"
+f74 = Flight.create :number => "074", :date => "2017/03/11", :destination => "Iceland", :departure => "Russia", :duration => "5000"
+f75 = Flight.create :number => "075", :date => "2017/03/12", :destination => "Moldova", :departure => "Russia", :duration => "5000"
+
+f76 = Flight.create :number => "076", :date => "2017/03/13", :destination => "Peru", :departure => "Egypt", :duration => "5000"
+f77 = Flight.create :number => "077", :date => "2017/03/14", :destination => "Thailand", :departure => "Egypt", :duration => "5000"
+f78 = Flight.create :number => "078", :date => "2017/03/15", :destination => "Hong Kong", :departure => "Egypt", :duration => "5000"
+f79 = Flight.create :number => "079", :date => "2017/03/16", :destination => "Malaysia", :departure => "Egypt", :duration => "5000"
+f80 = Flight.create :number => "080", :date => "2017/03/17", :destination => "Japan", :departure => "Egypt", :duration => "5000"
+
 a1.flights << f1
 
 a2.flights << f2
@@ -165,3 +203,65 @@ a2.flights << f48
 a3.flights << f49
 
 a1.flights << f50
+
+
+
+a1.flights << f51
+
+a2.flights << f52
+
+a3.flights << f53
+
+a1.flights << f54
+
+a2.flights << f55
+
+a3.flights << f56
+
+a1.flights << f57
+
+a2.flights << f58
+
+a3.flights << f59
+
+a1.flights << f60
+
+a1.flights << f61
+
+a2.flights << f62
+
+a3.flights << f63
+
+a1.flights << f64
+
+a2.flights << f65
+
+a3.flights << f66
+
+a1.flights << f67
+
+a2.flights << f68
+
+a3.flights << f69
+
+a1.flights << f70
+
+a1.flights << f71
+
+a2.flights << f72
+
+a3.flights << f73
+
+a1.flights << f74
+
+a2.flights << f75
+
+a3.flights << f76
+
+a1.flights << f77
+
+a2.flights << f78
+
+a3.flights << f79
+
+a1.flights << f80
