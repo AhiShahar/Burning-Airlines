@@ -27,7 +27,7 @@ app.BookingView = Backbone.View.extend({
         app.router.navigate("/" , true);
         return alert("app.booking reset");
       }
-    }, 20000);
+    }, 200000);
     app.booking.save().done(function () {
       app.allBookings.add( app.booking );
       var $compiledBookingDetailsTemplate = dynamicBookingDetailsTemplate(app.booking.toJSON());
@@ -39,7 +39,10 @@ app.BookingView = Backbone.View.extend({
 
   confirmBooking: function(e){
     app.booking.set("confirmation", true);
-    return alert("your booking has been confirmed!");
+    app.booking.save().done(function() {
+      app.router.navigate("/" , true);
+      return alert("your booking has been confirmed!");
+    });
   }
 
 
