@@ -42,7 +42,6 @@ app.SearchView = Backbone.View.extend({
         var $compiledResultTemplate = dynamicResultTemplate(flight.toJSON());
         $("#results").append( $compiledResultTemplate );
         $("#"+flight.toJSON().id).on("click", showFlight);
-
       });
     });
   }

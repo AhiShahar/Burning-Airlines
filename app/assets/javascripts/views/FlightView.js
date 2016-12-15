@@ -6,13 +6,13 @@ app.FlightView = Backbone.View.extend({
     el: "#results",
 
     events: {
-        'click .seat':'showSeat'
+        'click .seat': 'showSeat'
     },
-
 
     render: function(id) {
         // console.log(id);
         this.$el.html("");
+        var allBookings = allBookings || new app.Bookings();
 
         var flightDisplay = function() {
             var $plane = $("<div>").addClass("plane");
@@ -24,6 +24,8 @@ app.FlightView = Backbone.View.extend({
             var $aisle = $('<div class="col aisle"> </div>');
             var letters = [" ", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"];
             var topRow = true;
+
+
             _(parseInt(flight.airplane.rows) + 1).times(function(r) {
                 // console.log( r );
                 var $newRow = $row.clone();
@@ -32,7 +34,7 @@ app.FlightView = Backbone.View.extend({
                 if (r === 0) {
                     _(cols).times(function(letter) {
                         ($newRow).append($letter.clone().text(letters[letter]));
-                        if (topRow === true){
+                        if (topRow === true) {
                             $newRow.addClass("top-row");
                             topRow = false;
                         }
@@ -44,17 +46,20 @@ app.FlightView = Backbone.View.extend({
                     _(cols).times(function(column) {
 
                         if (column) {
-                            var allBookings = allBookings || new app.Bookings();
-                            allBookings.fetch().done(function(){
-                                var searchSeat = allBookings.filter(function(seat) {
-                                    console.log(seat.get("flight_id" === flight.id));
-                                });
+                            var searchSeat = allBookings.filter(function(seat) {
+                                return seat.get("flight_id") === flight.id && seat.get("seat") === "" + r + column;
                             });
+                            // console.log(searchSeat);
                             var $newSeat = $seat.clone();
-                            $newSeat.attr("id", r + letters[column] );
+                            $newSeat.attr("id", r + letters[column]);
                             $newSeat.attr("data-row", r);
                             $newSeat.attr("data-column", column);
                             $newSeat.attr("data-plane", flight.id);
+
+                            if ( searchSeat.length > 0 ) {
+                                $newSeat.addClass("unavailable");
+                            }
+
                             $newRow.append($newSeat);
                         } else {
                             $newRow.append($lineNumber.clone().text(r));
@@ -63,21 +68,23 @@ app.FlightView = Backbone.View.extend({
                             $newRow.append($aisle.clone());
                         }
                     });
+
                 }
             });
             return $plane;
-        };
+        }
 
         var allFlights = allFlights || new app.Flights();
         allFlights.fetch().done(function() {
             flight = allFlights.get(id).toJSON();
             // console.log(flight);
-            var $plane = flightDisplay();
-            // var flightTemplate = $(flightDisplay).html();
-            // var dynamicFlightTemplate = _.template(flightTemplate);
-            // var $compiledFlightTemplate = dynamicFlightTemplate(flight);
-            $("#results").html( $plane.html() );
-
+            allBookings.fetch().done(function() {
+                var $plane = flightDisplay();
+                // var flightTemplate = $(flightDisplay).html();
+                // var dynamicFlightTemplate = _.template(flightTemplate);
+                // var $compiledFlightTemplate = dynamicFlightTemplate(flight);
+                $("#results").html($plane.html());
+            });
         });
     },
 
