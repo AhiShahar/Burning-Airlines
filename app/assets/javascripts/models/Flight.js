@@ -10,6 +10,5 @@ app.Flight = Backbone.Model.extend({
     number: "QAFU",
   },
   initialize: function() {
-    // console.log("a flight should  be created");
   }
 });

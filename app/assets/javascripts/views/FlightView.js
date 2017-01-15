@@ -45,7 +45,7 @@ app.FlightView = Backbone.View.extend({
                                 if ((seat.get("flight_id") === flight.id && seat.get("seat") === "" + r + column) > 0){
                                     var bookingTime = new Date(seat.attributes.created_at);
                                     var currentTime = new Date();
-                                    if (currentTime - bookingTime > 60000 && seat.get("confirmation") === false) {
+                                    if (currentTime - bookingTime > 600000 && seat.get("confirmation") === false) {
                                         seat.destroy();
                                     } else {
                                         return seat.get("flight_id") === flight.id && seat.get("seat") === "" + r + column;

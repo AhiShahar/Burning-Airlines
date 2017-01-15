@@ -9,7 +9,5 @@ app.Booking = Backbone.Model.extend({
     seat: ""
   },
   initialize: function() {
-    console.log("something should  be created");
-
   }
 });
