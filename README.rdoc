@@ -1,6 +1,6 @@
-== README
-
 ## Burning Airline Exercise
+
+http://burningfriendships.herokuapp.com/
 
 Given 2 days and no prior team work (in web development) experience, we had to come up with a solution to this: https://gist.github.com/ga-wolf/14d2f7ba1311e088c7ea8c996aa3f598
 
